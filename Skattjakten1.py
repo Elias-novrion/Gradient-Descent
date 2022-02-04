@@ -68,21 +68,21 @@ y = float(input("punkt y = "))
 punktvarde = f(x, y)
 print("funktionsvärde då x =", x, " y =", y, " ->", punktvarde)
 
-x1 = x - 0.0000001
-y1 = y - 0.0000001
+x1 = x - 10**-14
+y1 = y - 10**-14
 for p in range(0, 21):
     print("x =", x1)
     print("y =", y1)
-    x1 = round(x1 + 0.00000001, 8)
-    y1 = round(y1 + 0.00000001, 8)
+    x1 = round(x1 + 10**-15, 15)
+    y1 = round(y1 + 10**-15, 15)
     print(f(x1, y1))
 
-x2 = x + 0.0000001
-y2 = y - 0.0000001
+x2 = x + 10**-14
+y2 = y - 10**-14
 for p in range(0, 21):
     print("x =", x2)
     print("y =", y2)
-    x2 = round(x2 - 0.00000001, 8)
-    y2 = round(y2 + 0.00000001, 8)
+    x2 = round(x2 - 10**-15, 15)
+    y2 = round(y2 + 10**-15, 15)
     print(f(x2, y2))
 
