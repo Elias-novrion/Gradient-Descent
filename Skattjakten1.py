@@ -87,6 +87,8 @@ for p in range(0, 21):
     y2 = round(y2 + 10**-15, 15)
     print(f(x2, y2))
 
+#GRAFER:
+
 x_1 = np.linspace(-20, 20, 50)
 y_1 = np.linspace(-20, 20, 50)
 X, Y = np.meshgrid(x_1, y_1)
