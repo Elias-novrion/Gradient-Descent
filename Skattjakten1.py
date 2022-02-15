@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 def f(x, y):
     return x**3+y**2-6*x*y
@@ -86,3 +87,46 @@ for p in range(0, 21):
     y2 = round(y2 + 10**-15, 15)
     print(f(x2, y2))
 
+x_1 = np.linspace(-20, 20, 50)
+y_1 = np.linspace(-20, 20, 50)
+X, Y = np.meshgrid(x_1, y_1)
+
+Z = f(X, Y)
+dZdx = dfdx(X, Y)
+dZdy = dfdy(X, Y)
+
+o_point_x = [0]
+o_point_y = [0]
+o_point_z = [f(o_point_x[0], o_point_y[0])]
+g_point_x = [6]
+g_point_y = [18]
+g_point_z = [f(g_point_x[0], g_point_y[0])]
+
+plt.figure(1)
+ax1 = plt.axes(projection='3d')
+ax1.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+
+ax1.scatter(g_point_x[0: -2], g_point_y[0: -2], g_point_z[0: -2], c=g_point_z[0: -2], marker='o', cmap="Greens")
+ax1.scatter(g_point_x[-1], g_point_y[-1], g_point_z[-1], c=g_point_z[-1], marker='o', cmap='Greens')
+
+ax1.scatter(o_point_x, o_point_y, o_point_z, c=o_point_z, marker='o', cmap='Oranges')
+
+ax1.set_xlabel('x')
+ax1.set_ylabel('y')
+ax1.set_zlabel('z')
+
+plt.figure("Partiella derivata x")
+ax2 = plt.axes(projection='3d')
+ax2.contour3D(X, Y, dZdx, 1000, cmap='binary')
+ax2.set_xlabel('x')
+ax2.set_ylabel('y')
+ax2.set_zlabel('partiella derivata: x')
+
+plt.figure("Partiella derivata y")
+ax2 = plt.axes(projection='3d')
+ax2.contour3D(X, Y, dZdy, 1000, cmap='binary')
+ax2.set_xlabel('x')
+ax2.set_ylabel('y')
+ax2.set_zlabel('partiella derivata: y')
+
+plt.show()
