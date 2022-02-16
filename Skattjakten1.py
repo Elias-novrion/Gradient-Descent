@@ -108,8 +108,8 @@ plt.figure(1)
 ax1 = plt.axes(projection='3d')
 ax1.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
 
-ax1.scatter(g_point_x[0: -2], g_point_y[0: -2], g_point_z[0: -2], c=g_point_z[0: -2], marker='o', cmap="Greens")
-ax1.scatter(g_point_x[-1], g_point_y[-1], g_point_z[-1], c=g_point_z[-1], marker='o', cmap='Greens')
+ax1.scatter(g_point_x[0: -2], g_point_y[0: -2], g_point_z[0: -2], c=g_point_z[0: -2], marker='o', cmap="Dark2")
+ax1.scatter(g_point_x[-1], g_point_y[-1], g_point_z[-1], c=g_point_z[-1], marker='o', cmap='Pastel1')
 
 ax1.scatter(o_point_x, o_point_y, o_point_z, c=o_point_z, marker='o', cmap='Oranges')
 
